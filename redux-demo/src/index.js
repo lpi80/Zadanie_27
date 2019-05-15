@@ -6,10 +6,13 @@ import ReactDOM from 'react-dom';
 import App from './App.js';
 import { addComment } from './actions.js';
 import DevTools from './DevTools.js';
+//import { createStore, applyMiddleware } from 'redux';
+//import { createLogger } from 'redux-logger';
 
-
+//const logger = createLogger();
 const store = createStore(
-	reducer,
+  reducer,
+  //applyMiddleware(logger)
 	DevTools.instrument()
 	);
 
