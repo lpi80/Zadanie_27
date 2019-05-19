@@ -4,8 +4,6 @@ import {REMOVE_COMMENT} from './actions';
 import {THUMB_UP_COMMENT} from './actions';
 import {THUMB_DOWN_COMMENT } from './actions';
 
-
-
 export default function comments(state = [], action) {
 	switch(action.type){
 		case ADD_COMMENT:
@@ -15,8 +13,10 @@ export default function comments(state = [], action) {
 					votes:0
 				}	
 				,...state];
+
 		case REMOVE_COMMENT:
 			return  state.filter(comment => comment.id !==action.id);
+
 		case EDIT_COMMENT:
 		return state.map(function(comment) {
 			if(comment.id === action.id) {
@@ -25,6 +25,7 @@ export default function comments(state = [], action) {
 				return comment;
 			}
 		});
+
 		case THUMB_UP_COMMENT:
 			return state.map(function(comment) {
 				if(comment.id === action.id) {
@@ -33,6 +34,7 @@ export default function comments(state = [], action) {
 					return comment;
 				}
 			});
+
 		case THUMB_DOWN_COMMENT:
 			return state.map(function(comment) {
 				if(comment.id === action.id) {
@@ -40,7 +42,8 @@ export default function comments(state = [], action) {
 				} else {
 					return comment;
 				}
-			});								
+			});	
+
 		default:
 			return state;
 	}
