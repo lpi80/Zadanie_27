@@ -7,12 +7,13 @@ export const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
 export const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
 
 function addComment(text) {
-    if (!text) 
+    if (!text) {
         return { 
             type: ADD_COMMENT,
             text: prompt("podaj nowa nazwe: ", 'Wpisz komentarz'),
             id: uuid.v4()
         }
+    }
     else return {
         type: ADD_COMMENT,
         text: text,
